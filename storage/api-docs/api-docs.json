@@ -1,0 +1,2462 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API SIAKAD GERBANG",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/reference/cohort-years": {
+            "get": {
+                "tags": [
+                    "Reference/CohortYear"
+                ],
+                "summary": "List all cohort-years",
+                "operationId": "479682f4d4eea68c3d2d8a973d2ad199",
+                "responses": {
+                    "200": {
+                        "description": "List of cohort-years",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CohortYearListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/CohortYear"
+                ],
+                "summary": "Create a new cohort-year",
+                "operationId": "1979ccc431d3ab6063edabce8ce70a9a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "year",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "year": {
+                                        "type": "string",
+                                        "example": "2023"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "2023/2024"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "CohortYear created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CohortYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/cohort-years/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/CohortYear"
+                ],
+                "summary": "Get cohort-year detail by ID",
+                "operationId": "beca85a016193ff8b681e3a3adb30abd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "CohortYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CohortYear detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CohortYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CohortYear not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/CohortYear"
+                ],
+                "summary": "Update an existing cohort-year",
+                "operationId": "cb73563661ef2992c4ad97848dfa7c25",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "CohortYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "year",
+                                    "name"
+                                ],
+                                "properties": {
+                                    "year": {
+                                        "type": "string",
+                                        "example": "2023"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "2023/2024"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "CohortYear updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CohortYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CohortYear not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/CohortYear"
+                ],
+                "summary": "Delete a cohort-year by ID",
+                "operationId": "431b46512b8256e4f51ee41e323eef98",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "CohortYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "CohortYear deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "CohortYear not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/course-types": {
+            "get": {
+                "tags": [
+                    "Reference/CourseType"
+                ],
+                "summary": "List all course types",
+                "operationId": "c817064f5fb060f683b618ac590613e0",
+                "responses": {
+                    "200": {
+                        "description": "List of course types",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CourseTypeListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/CourseType"
+                ],
+                "summary": "Create new course type",
+                "operationId": "afc785d0638259f18244ed8b5e009906",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CourseType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Course Type created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CourseTypeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reference/course-types/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/CourseType"
+                ],
+                "summary": "Get detail course type",
+                "operationId": "1f4f2242e366172a4973bf1b5e569080",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Course Type detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CourseTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Course Type not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/CourseType"
+                ],
+                "summary": "Update an existing course type",
+                "operationId": "10d3d25f4ca5252941f424f6965d4a1b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the course type to update",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CourseType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Course Type updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CourseTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Course Type not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/CourseType"
+                ],
+                "summary": "Delete course type",
+                "operationId": "198323b10f4c596f556181363b36d9b4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the course type to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }
+                }
+            }
+        },
+        "/api/reference/minimum-prerequisite-courses": {
+            "get": {
+                "tags": [
+                    "Reference/MinimumPrerequisiteCourse"
+                ],
+                "summary": "List all MinimumPrerequisiteCourse",
+                "operationId": "9b3db65015a921250a47b41ffc71c469",
+                "responses": {
+                    "200": {
+                        "description": "List of MinimumPrerequisiteCourse",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MinimumPrerequisiteCourseListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/MinimumPrerequisiteCourse"
+                ],
+                "summary": "Create a new MinimumPrerequisiteCourse",
+                "operationId": "480d6a4d7f46057ca8d147be106ab56e",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "MinimumPrerequisiteCourse created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MinimumPrerequisiteCourseResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/minimum-prerequisite-courses/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/MinimumPrerequisiteCourse"
+                ],
+                "summary": "Get MinimumPrerequisiteCourse detail by ID",
+                "operationId": "1a083b030e48c67781ba04e37fd66f57",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "MinimumPrerequisiteCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "MinimumPrerequisiteCourse detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MinimumPrerequisiteCourseResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "MinimumPrerequisiteCourse not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/MinimumPrerequisiteCourse"
+                ],
+                "summary": "Update an existing MinimumPrerequisiteCourse",
+                "operationId": "b9bb122b26d31afbc02fbc60afa66cc4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "MinimumPrerequisiteCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "MinimumPrerequisiteCourse updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/MinimumPrerequisiteCourseResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "MinimumPrerequisiteCourse not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/MinimumPrerequisiteCourse"
+                ],
+                "summary": "Delete a MinimumPrerequisiteCourse by ID",
+                "operationId": "325d224303af5a49468aefe11b5ac332",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "MinimumPrerequisiteCourse ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "MinimumPrerequisiteCourse deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "MinimumPrerequisiteCourse not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-levels": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationLevel"
+                ],
+                "summary": "List all organization levels",
+                "operationId": "db8b4bdcfdbc4d6458b142a0057eb863",
+                "responses": {
+                    "200": {
+                        "description": "List of organization levels",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationLevelListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/OrganizationLevel"
+                ],
+                "summary": "Create new organization level",
+                "operationId": "9052cb4b8050d6383d2247f3d7e335b9",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OrganizationLevel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Organization level created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationLevelResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-levels/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationLevel"
+                ],
+                "summary": "Get detail organization level",
+                "operationId": "7190c10c7e3689c479d5013f9617278a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Organization level detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationLevelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Organization level not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/OrganizationLevel"
+                ],
+                "summary": "Update an existing organization level",
+                "operationId": "a046b52f74a3c0730799b9ae9dabaa77",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the organization level to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OrganizationLevel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Organization level updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationLevelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Organization level not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/OrganizationLevel"
+                ],
+                "summary": "Delete organization level",
+                "operationId": "602f7bb1d51d22c3ae18516564a4b82e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the organization level to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Organization level deleted"
+                    }
+                }
+            }
+        },
+        "/api/reference/roles": {
+            "get": {
+                "tags": [
+                    "Reference/Role"
+                ],
+                "summary": "List all roles",
+                "operationId": "65d80f568bfbbd11a918fe4aa657a3a1",
+                "responses": {
+                    "200": {
+                        "description": "List of roles",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/Role"
+                ],
+                "summary": "Create a new role",
+                "operationId": "e0abe500d69b3eb3d004b8c8ce9d0e47",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Role created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/roles/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/Role"
+                ],
+                "summary": "Get role detail by ID",
+                "operationId": "5b81b96abc435f2cffabd0ccbcce30be",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/Role"
+                ],
+                "summary": "Update an existing role",
+                "operationId": "e85adffed59333f93929494b1b346bf3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Role updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/RoleResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/Role"
+                ],
+                "summary": "Delete a role by ID",
+                "operationId": "4d5692693ba4a863b8637adc74dd1ed1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Role deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Role not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/semester-types": {
+            "get": {
+                "tags": [
+                    "Reference/SemesterType"
+                ],
+                "summary": "List all SemesterType",
+                "operationId": "30dbda85da2759faf290e90a05802bcb",
+                "responses": {
+                    "200": {
+                        "description": "List of SemesterType",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SemesterTypeListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/SemesterType"
+                ],
+                "summary": "Create a new SemesterType",
+                "operationId": "685d6615185bb9fe606f40e5c5e429f7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "code"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "SemesterType created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SemesterTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/semester-types/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/SemesterType"
+                ],
+                "summary": "Get SemesterType detail by ID",
+                "operationId": "8ddc96bfcd96b4ac73d52b4d8c453a65",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "SemesterType ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SemesterType detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SemesterTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "SemesterType not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/SemesterType"
+                ],
+                "summary": "Update an existing SemesterType",
+                "operationId": "d5c43682a36ff04780b839b45bd1485c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "SemesterType ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "code"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "SemesterType updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SemesterTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "SemesterType not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/SemesterType"
+                ],
+                "summary": "Delete a SemesterType by ID",
+                "operationId": "96868e630f6b94f86c0be4f062c8e78f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "SemesterType ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SemesterType deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "SemesterType not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/statuses": {
+            "get": {
+                "tags": [
+                    "Reference/Status"
+                ],
+                "summary": "List all statuses",
+                "operationId": "5416e46629267fe9fadb5495b162e4b2",
+                "responses": {
+                    "200": {
+                        "description": "List of statuses",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/Status"
+                ],
+                "summary": "Create a new status",
+                "operationId": "5c93e89ae9fc5fad4941fe4715461993",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "status_type_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "properties": {
+                                            "en": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "example": "Aktif"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "status_type_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Status created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/statuses/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/Status"
+                ],
+                "summary": "Get status detail by ID",
+                "operationId": "353474c920ae155fbd29f31a735c454a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/Status"
+                ],
+                "summary": "Update an existing status",
+                "operationId": "93888e28209c46527d983a83270d0916",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the status to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "status_type_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "properties": {
+                                            "en": {
+                                                "type": "string",
+                                                "example": "Inactive"
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "example": "Tidak Aktif"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "status_type_id": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Status updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/Status"
+                ],
+                "summary": "Delete a status by ID",
+                "operationId": "02a8e1f0919288d9a2bd26d91e750e66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Status ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/status-types": {
+            "get": {
+                "tags": [
+                    "Reference/StatusType"
+                ],
+                "summary": "List all status types",
+                "operationId": "6492e3cc9eff9a29f9e4a50271ea4216",
+                "responses": {
+                    "200": {
+                        "description": "List of status types",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusTypeListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/StatusType"
+                ],
+                "summary": "Create new status type",
+                "operationId": "storeStatusType",
+                "requestBody": {
+                    "description": "Payload untuk membuat status type baru",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "properties": {
+                                            "en": {
+                                                "type": "string",
+                                                "example": "Active"
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "example": "Aktif"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Status type created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/api/reference/status-types/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/StatusType"
+                ],
+                "summary": "Get status type by ID",
+                "operationId": "15aea9fe4751302ffa6aff4209a2d5ac",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the status type to retrieve",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status type detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status type not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/StatusType"
+                ],
+                "summary": "Update an existing status type",
+                "operationId": "4d99411f5ba2e908e754ee0e3efd735d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the status type to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/StatusType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Status type updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StatusTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status type not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/StatusType"
+                ],
+                "summary": "Delete status type",
+                "operationId": "deleteStatusType",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the status type to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status type deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Data deleted"
+                                        },
+                                        "data": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Status type not found"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    }
+                }
+            }
+        },
+        "/api/reference/unit-types": {
+            "get": {
+                "tags": [
+                    "Reference/UnitType"
+                ],
+                "summary": "List all unit types",
+                "operationId": "84368a834371f941b2cfca051d4649a7",
+                "responses": {
+                    "200": {
+                        "description": "List of unit types",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UnitTypeListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/UnitType"
+                ],
+                "summary": "Create new unit type",
+                "operationId": "923b54880e01839918ddeb0b7d4b7ea1",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Unit Type created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UnitTypeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reference/unit-types/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/UnitType"
+                ],
+                "summary": "Get detail unit type",
+                "operationId": "95f0ba425e013dcd3a31fcefc2b1a5ca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the unit type to get detail",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Unit Type detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UnitTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unit Type not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/UnitType"
+                ],
+                "summary": "Update an existing unit type",
+                "operationId": "e134d71bd581e31e669f0fded28da690",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the unit type to update",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UnitType"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Unit Type updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UnitTypeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Unit Type not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/UnitType"
+                ],
+                "summary": "Delete unit type",
+                "operationId": "53d8ec54f786e47f0c3c1df76c2b5057",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the unit type to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }
+                }
+            }
+        },
+        "/api/reference/users": {
+            "get": {
+                "tags": [
+                    "Reference/User"
+                ],
+                "summary": "List all users",
+                "operationId": "7624d5b64396dcbf3e1bbb1bb3447312",
+                "responses": {
+                    "200": {
+                        "description": "List of users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/User"
+                ],
+                "summary": "Create new user",
+                "operationId": "70ec9fb47f470a08833c605339b4d9a3",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/reference/users/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/User"
+                ],
+                "summary": "Get detail user",
+                "operationId": "47868578089b87a33be4f59de30b979c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/User"
+                ],
+                "summary": "Update an existing user",
+                "operationId": "2b5111d5b8fc49f951648681c22b11a6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/User"
+                ],
+                "summary": "Delete user",
+                "operationId": "23c18d8d31a0ab450b4f2738abba9913",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deleted"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Accreditation": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Pending"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Menunggu"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Accreditation description"
+                    }
+                },
+                "type": "object"
+            },
+            "AccreditationResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Accreditation detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/Accreditation"
+                    }
+                },
+                "type": "object"
+            },
+            "AccreditationListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of accreditations"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Accreditation"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CohortYear": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "year": {
+                        "type": "string",
+                        "example": "2023"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "2023/2024"
+                    }
+                },
+                "type": "object"
+            },
+            "CohortYearResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "CohortYear detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CohortYear"
+                    }
+                },
+                "type": "object"
+            },
+            "CohortYearListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of cohort-years"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CohortYear"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "CourseType": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Compulsory Course"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Mata Kuliah Wajib"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "note": {
+                        "type": "string",
+                        "example": "Catatan tambahan"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseTypeResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Course Type detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/CourseType"
+                    }
+                },
+                "type": "object"
+            },
+            "CourseTypeListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of Course Types"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CourseType"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "MinimumPrerequisiteCourse": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Odd"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Gasal"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "MinimumPrerequisiteCourseResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Minimum prerequisite course detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/MinimumPrerequisiteCourse"
+                    }
+                },
+                "type": "object"
+            },
+            "MinimumPrerequisiteCourseListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of minimum prerequisite courses"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/MinimumPrerequisiteCourse"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationLevel": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "BLU"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Badan Layanan Umum"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "user"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationLevelResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Organization level detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/OrganizationLevel"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationLevelListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of organization levels"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganizationLevel"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Role": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "admin"
+                    }
+                },
+                "type": "object"
+            },
+            "RoleResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Role detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/Role"
+                    }
+                },
+                "type": "object"
+            },
+            "RoleListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of roles"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Role"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SemesterType": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Odd"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Gasal"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "code": {
+                        "type": "string",
+                        "example": "Gs"
+                    }
+                },
+                "type": "object"
+            },
+            "SemesterTypeResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Semester type detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/SemesterType"
+                    }
+                },
+                "type": "object"
+            },
+            "SemesterTypeListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of semester types"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/SemesterType"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Status": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Pending"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Menunggu"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "status_type_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "status_type": {
+                        "$ref": "#/components/schemas/StatusType"
+                    }
+                },
+                "type": "object"
+            },
+            "StatusResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Status detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/Status"
+                    }
+                },
+                "type": "object"
+            },
+            "StatusListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of statuses"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Status"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "StatusType": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Student-In"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Mahasiswa Masuk"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "StatusTypeResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Status type detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/StatusType"
+                    }
+                },
+                "type": "object"
+            },
+            "StatusTypeListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of status types"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StatusType"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "UnitType": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Program Sarjana"
+                    },
+                    "note": {
+                        "type": "string",
+                        "example": "Catatan tambahan"
+                    }
+                },
+                "type": "object"
+            },
+            "UnitTypeResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Unit Type detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/UnitType"
+                    }
+                },
+                "type": "object"
+            },
+            "UnitTypeListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of Unit Types"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/UnitType"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "User": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "01234567"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "user.name@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "password123"
+                    },
+                    "email_verified_at": {
+                        "type": "string",
+                        "example": null
+                    }
+                },
+                "type": "object"
+            },
+            "UserResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "User detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "type": "object"
+            },
+            "UserListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of users"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Reference/CohortYear",
+            "description": "Reference/CohortYear"
+        },
+        {
+            "name": "Reference/CourseType",
+            "description": "Reference/CourseType"
+        },
+        {
+            "name": "Reference/MinimumPrerequisiteCourse",
+            "description": "Reference/MinimumPrerequisiteCourse"
+        },
+        {
+            "name": "Reference/OrganizationLevel",
+            "description": "Reference/OrganizationLevel"
+        },
+        {
+            "name": "Reference/Role",
+            "description": "Reference/Role"
+        },
+        {
+            "name": "Reference/SemesterType",
+            "description": "Reference/SemesterType"
+        },
+        {
+            "name": "Reference/Status",
+            "description": "Reference/Status"
+        },
+        {
+            "name": "Reference/StatusType",
+            "description": "Reference/StatusType"
+        },
+        {
+            "name": "Reference/UnitType",
+            "description": "Reference/UnitType"
+        },
+        {
+            "name": "Reference/User",
+            "description": "Reference/User"
+        }
+    ]
+}
