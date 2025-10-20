@@ -1480,6 +1480,199 @@
                 }
             }
         },
+        "/api/reference/study-stages": {
+            "get": {
+                "tags": [
+                    "Reference/StudyStage"
+                ],
+                "summary": "List all StudyStage",
+                "operationId": "59bd258b72905a706754f0f6cee02300",
+                "responses": {
+                    "200": {
+                        "description": "List of StudyStage",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudyStageListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/StudyStage"
+                ],
+                "summary": "Create a new StudyStage",
+                "operationId": "1d1608baf86ba1139279b1f64b48ac4a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "StudyStage created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudyStageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/study-stages/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/StudyStage"
+                ],
+                "summary": "Get StudyStage detail by ID",
+                "operationId": "30c79149fc4b8d88fff4063399c72b2f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "StudyStage ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "StudyStage detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudyStageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "StudyStage not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/StudyStage"
+                ],
+                "summary": "Update an existing StudyStage",
+                "operationId": "816f15845d860e63acb752b39f35fcbb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "StudyStage ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "StudyStage updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/StudyStageResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "StudyStage not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/StudyStage"
+                ],
+                "summary": "Delete a StudyStage by ID",
+                "operationId": "7388855957606dbbe47fc84ae2d965cc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "StudyStage ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "StudyStage deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "StudyStage not found"
+                    }
+                }
+            }
+        },
         "/api/reference/unit-types": {
             "get": {
                 "tags": [
@@ -2303,6 +2496,67 @@
                 },
                 "type": "object"
             },
+            "StudyStage": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "example name"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Contoh nama"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "code": {
+                        "type": "string",
+                        "example": "Gs"
+                    }
+                },
+                "type": "object"
+            },
+            "StudyStageResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Semester type detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/StudyStage"
+                    }
+                },
+                "type": "object"
+            },
+            "StudyStageListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of semester types"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/StudyStage"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "UnitType": {
                 "properties": {
                     "id": {
@@ -2449,6 +2703,10 @@
         {
             "name": "Reference/StatusType",
             "description": "Reference/StatusType"
+        },
+        {
+            "name": "Reference/StudyStage",
+            "description": "Reference/StudyStage"
         },
         {
             "name": "Reference/UnitType",

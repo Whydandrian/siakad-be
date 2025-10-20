@@ -9,6 +9,7 @@ use App\Modules\Reference\Http\Controllers\Api\RoleController;
 use App\Modules\Reference\Http\Controllers\Api\SemesterTypeController;
 use App\Modules\Reference\Http\Controllers\Api\StatusController;
 use App\Modules\Reference\Http\Controllers\Api\StatusTypeController;
+use App\Modules\Reference\Http\Controllers\Api\StudyStageController;
 use App\Modules\Reference\Http\Controllers\Api\UnitTypeController;
 use App\Modules\Reference\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
@@ -120,6 +121,15 @@ Route::prefix('reference')->name('reference.')->group(function () {
         Route::put('/{id}', [MinimumPrerequisiteCourseController::class, 'update'])->name('api.minimum-prerequisites.update');
         Route::post('/', [MinimumPrerequisiteCourseController::class, 'store'])->name('api.minimum-prerequisites.store');
         Route::delete('/{id}', [MinimumPrerequisiteCourseController::class, 'destroy'])->name('api.minimum-prerequisites.destroy');
+    });
+    
+    // Study Stage Routes
+    Route::prefix('study-stages')->group(function () {
+        Route::get('/', [StudyStageController::class, 'index'])->name('api.minimum-prerequisites.index');
+        Route::get('/{id}', [StudyStageController::class, 'find'])->name('api.minimum-prerequisites.show');
+        Route::put('/{id}', [StudyStageController::class, 'update'])->name('api.minimum-prerequisites.update');
+        Route::post('/', [StudyStageController::class, 'store'])->name('api.minimum-prerequisites.store');
+        Route::delete('/{id}', [StudyStageController::class, 'destroy'])->name('api.minimum-prerequisites.destroy');
     });
 
 
