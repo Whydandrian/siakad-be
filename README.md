@@ -7,14 +7,38 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Instalasi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Update package via composer
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+composer update
+```
+
+### Penggunaan Auto Generate API
+Jalankan perintah berikut:
+```bash
+php artisan scribes:generate-module --name={ModuleName} --table={table_names} --api
+```
+- Ganti `{table_names}` dengan nama table yang ingin di generate.
+- Ganti `{ModuleName}` dengan nama module yang akan dibuat. Contoh: Academic, Report, etc.
+Otomatis akan membuat direktori module, contoh : Academic, dan didalamnya ada folder controller, services, repositories, route, config, model & presenters.
+
+- Jika ingin generate controller, request, repository & service satu-satu gunakan command:
+
+    ```bash
+    php artisan scribes:make-module --name=Perkuliahan --table={table_name} --controller or --request or --repository or --service
+    ```
+    tag --controller --request --repository --service bersifat opsional, bisa pilih salah satu.
+
+
+    Ganti `{table_name}` dengan nama table yang ingin di generate.
+
+### Pembaruan API
+Untuk memperbarui API jalankan perintah berikut:
+```bash
+php artisan l5-swagger:generate
+```
+
+### Warning
+Jangan lupa tambahkan schema untuk setiap Model yang akan dibuat endpoint-nya.

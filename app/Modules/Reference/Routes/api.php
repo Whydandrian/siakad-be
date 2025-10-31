@@ -1,5 +1,6 @@
 <?php
 
+use App\Modules\Reference\Http\Controllers\Api\AdmissionPathwayController;
 use App\Modules\Reference\Http\Controllers\Api\CohortYearController;
 use App\Modules\Reference\Http\Controllers\Api\CourseTypeController;
 use App\Modules\Reference\Http\Controllers\Api\MinimumPrerequisiteCourseController;
@@ -132,6 +133,93 @@ Route::prefix('reference')->name('reference.')->group(function () {
         Route::delete('/{id}', [StudyStageController::class, 'destroy'])->name('api.minimum-prerequisites.destroy');
     });
 
+    // AdmissionPathway Routes
+    Route::prefix('admission-pathways')->group(function () {
+        Route::get('/', [AdmissionPathwayController::class, 'index'])->name('index');
+        Route::get('/{id}', [AdmissionPathwayController::class, 'find'])->name('show');
+        Route::post('/', [AdmissionPathwayController::class, 'store'])->name('store');
+        Route::put('/{id}', [AdmissionPathwayController::class, 'update'])->name('update');
+        Route::delete('/{id}', [AdmissionPathwayController::class, 'destroy'])->name('destroy');
+    });
 
+
+    // GraduationPredicate Routes
+    Route::prefix('graduation-predicates')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\GraduationPredicateController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationPredicateController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\GraduationPredicateController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationPredicateController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationPredicateController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // EducationLevel Routes
+    Route::prefix('education_levels')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\EducationLevelController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\EducationLevelController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\EducationLevelController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\EducationLevelController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\EducationLevelController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // Accreditation Routes
+    Route::prefix('accreditations')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\AccreditationController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\AccreditationController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\AccreditationController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\AccreditationController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\AccreditationController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // GradeList Routes
+    Route::prefix('grade-lists')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\GradeListController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\GradeListController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\GradeListController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\GradeListController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\GradeListController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // DigitSemester Routes
+    Route::prefix('digit-semesters')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\DigitSemesterController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\DigitSemesterController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\DigitSemesterController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\DigitSemesterController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\DigitSemesterController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // AcademicYear Routes
+    Route::prefix('academic-years')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\AcademicYearController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\AcademicYearController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\AcademicYearController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\AcademicYearController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\AcademicYearController::class, 'destroy'])->name('destroy');
+    });
+
+
+    // Graduation Routes
+    Route::prefix('graduations')->group(function () {
+        Route::get('/', [App\Modules\Reference\Http\Controllers\Api\GraduationController::class, 'index'])->name('index');
+        Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationController::class, 'find'])->name('show');
+        Route::post('/', [App\Modules\Reference\Http\Controllers\Api\GraduationController::class, 'store'])->name('store');
+        Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationController::class, 'update'])->name('update');
+        Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\GraduationController::class, 'destroy'])->name('destroy');
+    });
+
+
+// OrganizationUnitHistory Routes
+Route::prefix('organization-unit-histories')->group(function () {
+    Route::get('/', [App\Modules\Reference\Http\Controllers\Api\OrganizationUnitHistoryController::class, 'index'])->name('index');
+    Route::get('/{id}', [App\Modules\Reference\Http\Controllers\Api\OrganizationUnitHistoryController::class, 'find'])->name('show');
+    Route::post('/', [App\Modules\Reference\Http\Controllers\Api\OrganizationUnitHistoryController::class, 'store'])->name('store');
+    Route::put('/{id}', [App\Modules\Reference\Http\Controllers\Api\OrganizationUnitHistoryController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Modules\Reference\Http\Controllers\Api\OrganizationUnitHistoryController::class, 'destroy'])->name('destroy');
+});
 
 });

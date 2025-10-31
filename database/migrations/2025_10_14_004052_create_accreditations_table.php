@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('accreditations', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->text('description');
+            $table->json('description');
             $table->timestamps();
         });
     }

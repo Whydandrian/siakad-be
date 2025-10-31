@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('digit_semesters', function (Blueprint $table) {
             $table->id();
             $table->integer('digit');
-            $table->string('note')->nullable();
+            $table->json('note')->nullable();
             $table->timestamps();
         });
     }

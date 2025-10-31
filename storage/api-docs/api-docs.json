@@ -5,6 +5,549 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/api/reference/academic-years": {
+            "get": {
+                "tags": [
+                    "Reference/AcademicYear"
+                ],
+                "summary": "List all AcademicYear",
+                "operationId": "05c96716d920fd891fd7f211f53922e4",
+                "responses": {
+                    "200": {
+                        "description": "List of AcademicYear",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcademicYearListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/AcademicYear"
+                ],
+                "summary": "Create a new AcademicYear",
+                "operationId": "1e4d34261c2828cfb5c43c2f35849958",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "AcademicYear created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcademicYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/academic-years/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/AcademicYear"
+                ],
+                "summary": "Get AcademicYear detail by ID",
+                "operationId": "81016fa98a43c21260b20f3f547bd9c7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AcademicYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AcademicYear detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcademicYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AcademicYear not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/AcademicYear"
+                ],
+                "summary": "Update an existing AcademicYear",
+                "operationId": "9000b6c03d9b63fba836765b64d329c7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AcademicYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "AcademicYear updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AcademicYearResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AcademicYear not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/AcademicYear"
+                ],
+                "summary": "Delete a AcademicYear by ID",
+                "operationId": "c46994c39feb371bc04bad8fccba2363",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AcademicYear ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AcademicYear deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AcademicYear not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/accreditations": {
+            "get": {
+                "tags": [
+                    "Reference/Accreditation"
+                ],
+                "summary": "List all Accreditation",
+                "operationId": "3c8803164f5c5cc69842e431763a892b",
+                "responses": {
+                    "200": {
+                        "description": "List of Accreditation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AccreditationListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/Accreditation"
+                ],
+                "summary": "Create a new Accreditation",
+                "operationId": "205445dd74674b4cd9bc4dbf08280104",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "example description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Accreditation created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AccreditationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/accreditations/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/Accreditation"
+                ],
+                "summary": "Get Accreditation detail by ID",
+                "operationId": "cae7456d6ebaa24137b921cfb75e15a4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Accreditation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Accreditation detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AccreditationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Accreditation not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/Accreditation"
+                ],
+                "summary": "Update an existing Accreditation",
+                "operationId": "08123b2ce12d1d5f81eec32d8c4fa627",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Accreditation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "description"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "example description"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Accreditation updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AccreditationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Accreditation not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/Accreditation"
+                ],
+                "summary": "Delete a Accreditation by ID",
+                "operationId": "f7a622afebb286bcfcb6d8540ed9deed",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Accreditation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Accreditation deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Accreditation not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/admission-pathways": {
+            "get": {
+                "tags": [
+                    "Reference/AdmissionPathway"
+                ],
+                "summary": "List all AdmissionPathway",
+                "operationId": "658bd7ec3bda1763e9615f57e1fea5d2",
+                "responses": {
+                    "200": {
+                        "description": "List of AdmissionPathway",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AdmissionPathwayListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/AdmissionPathway"
+                ],
+                "summary": "Create a new AdmissionPathway",
+                "operationId": "8abc4588394118402bc2e209154009ed",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "AdmissionPathway created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AdmissionPathwayResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/admission-pathways/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/AdmissionPathway"
+                ],
+                "summary": "Get AdmissionPathway detail by ID",
+                "operationId": "d067f6007356b49b25fb198c8f89502d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AdmissionPathway ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AdmissionPathway detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AdmissionPathwayResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AdmissionPathway not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/AdmissionPathway"
+                ],
+                "summary": "Update an existing AdmissionPathway",
+                "operationId": "1abbbb396dc532457a17129d56f2a84b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AdmissionPathway ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "AdmissionPathway updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AdmissionPathwayResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AdmissionPathway not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/AdmissionPathway"
+                ],
+                "summary": "Delete a AdmissionPathway by ID",
+                "operationId": "a174c34c76e6d270e1df2fc2ec79ad85",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "AdmissionPathway ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "AdmissionPathway deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "AdmissionPathway not found"
+                    }
+                }
+            }
+        },
         "/api/reference/cohort-years": {
             "get": {
                 "tags": [
@@ -349,6 +892,881 @@
                 }
             }
         },
+        "/api/reference/digit-semesters": {
+            "get": {
+                "tags": [
+                    "Reference/DigitSemester"
+                ],
+                "summary": "List all DigitSemester",
+                "operationId": "35bb4a69d36dcd3312bb3880d9a9d4b3",
+                "responses": {
+                    "200": {
+                        "description": "List of DigitSemester",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DigitSemesterListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/DigitSemester"
+                ],
+                "summary": "Create a new DigitSemester",
+                "operationId": "8f8cb94748cfa6a864f86ce55f19017f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "DigitSemester created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DigitSemesterResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/digit-semesters/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/DigitSemester"
+                ],
+                "summary": "Get DigitSemester detail by ID",
+                "operationId": "39d7176768adda18ed5837809f6cd76f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "DigitSemester ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "DigitSemester detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DigitSemesterResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "DigitSemester not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/DigitSemester"
+                ],
+                "summary": "Update an existing DigitSemester",
+                "operationId": "2daa63f0388ab44a19210f79e8fbf2bd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "DigitSemester ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "DigitSemester updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DigitSemesterResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "DigitSemester not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/DigitSemester"
+                ],
+                "summary": "Delete a DigitSemester by ID",
+                "operationId": "7225c9f18809fa0254e2a76a0609bdaa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "DigitSemester ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "DigitSemester deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "DigitSemester not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/education-levels": {
+            "get": {
+                "tags": [
+                    "Reference/EducationLevel"
+                ],
+                "summary": "List all EducationLevel",
+                "operationId": "9e835793477699121e61c21d3548961f",
+                "responses": {
+                    "200": {
+                        "description": "List of EducationLevel",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EducationLevelListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/EducationLevel"
+                ],
+                "summary": "Create a new EducationLevel",
+                "operationId": "97b8c4c7b641f9537e8812e963c33f57",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "EducationLevel created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EducationLevelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/education-levels/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/EducationLevel"
+                ],
+                "summary": "Get EducationLevel detail by ID",
+                "operationId": "04c4ea397f3e51f12e43409db6a329b1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "EducationLevel ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "EducationLevel detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EducationLevelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "EducationLevel not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/EducationLevel"
+                ],
+                "summary": "Update an existing EducationLevel",
+                "operationId": "195b490ceebaf91830f2a6c1e0297920",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "EducationLevel ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "EducationLevel updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/EducationLevelResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "EducationLevel not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/EducationLevel"
+                ],
+                "summary": "Delete a EducationLevel by ID",
+                "operationId": "b68338d5dcf79567d2aa417253a725e8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "EducationLevel ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "EducationLevel deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "EducationLevel not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/grade-lists": {
+            "get": {
+                "tags": [
+                    "Reference/GradeList"
+                ],
+                "summary": "List all GradeList",
+                "operationId": "6d20dacc2b94fc460d93aa0411bde05c",
+                "responses": {
+                    "200": {
+                        "description": "List of GradeList",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradeListListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/GradeList"
+                ],
+                "summary": "Create a new GradeList",
+                "operationId": "0013fb31b71cacfc80d16a10708bc503",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "GradeList created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradeListResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/grade-lists/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/GradeList"
+                ],
+                "summary": "Get GradeList detail by ID",
+                "operationId": "1f3bf64f21ac9a5ea3ac75e2ba3d826c",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GradeList ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GradeList detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradeListResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GradeList not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/GradeList"
+                ],
+                "summary": "Update an existing GradeList",
+                "operationId": "1c7bb649ebddd7b605ad7802363faf1a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GradeList ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "GradeList updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GradeListResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GradeList not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/GradeList"
+                ],
+                "summary": "Delete a GradeList by ID",
+                "operationId": "34f155b36e6592e40ea7a6af4060169f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GradeList ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GradeList deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GradeList not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/graduations": {
+            "get": {
+                "tags": [
+                    "Reference/Graduation"
+                ],
+                "summary": "List all Graduation",
+                "operationId": "c02fb9f9e0035850afdf8e6dfa0380b1",
+                "responses": {
+                    "200": {
+                        "description": "List of Graduation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/Graduation"
+                ],
+                "summary": "Create a new Graduation",
+                "operationId": "7265e557a104bd15480c85b89b347cdc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Graduation created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/graduations/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/Graduation"
+                ],
+                "summary": "Get Graduation detail by ID",
+                "operationId": "8691201d364586dbac5b5544f22927c7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Graduation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Graduation detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Graduation not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/Graduation"
+                ],
+                "summary": "Update an existing Graduation",
+                "operationId": "a85530b398e22f8d79e03b62a404f90f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Graduation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Graduation updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Graduation not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/Graduation"
+                ],
+                "summary": "Delete a Graduation by ID",
+                "operationId": "9ff8f4106a2803b2c5e207b5fbcba587",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Graduation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Graduation deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Graduation not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/graduation-predicates": {
+            "get": {
+                "tags": [
+                    "Reference/GraduationPredicate"
+                ],
+                "summary": "List all GraduationPredicate",
+                "operationId": "42cf88564fc17e1f590302de567d5757",
+                "responses": {
+                    "200": {
+                        "description": "List of GraduationPredicate",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationPredicateListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/GraduationPredicate"
+                ],
+                "summary": "Create a new GraduationPredicate",
+                "operationId": "a1954c89aad789346f478ac0eb2bac56",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "GraduationPredicate created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationPredicateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/graduation-predicates/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/GraduationPredicate"
+                ],
+                "summary": "Get GraduationPredicate detail by ID",
+                "operationId": "e9ac978f08f125727f08cb3aa94b8ff4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GraduationPredicate ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GraduationPredicate detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationPredicateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GraduationPredicate not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/GraduationPredicate"
+                ],
+                "summary": "Update an existing GraduationPredicate",
+                "operationId": "563e45178fdd690c4a43de09a3d877db",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GraduationPredicate ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "object",
+                                        "example": "example name"
+                                    },
+                                    "code": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "GraduationPredicate updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GraduationPredicateResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GraduationPredicate not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/GraduationPredicate"
+                ],
+                "summary": "Delete a GraduationPredicate by ID",
+                "operationId": "cd031885afa0b594acbd274c6f442d83",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "GraduationPredicate ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GraduationPredicate deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "GraduationPredicate not found"
+                    }
+                }
+            }
+        },
         "/api/reference/minimum-prerequisite-courses": {
             "get": {
                 "tags": [
@@ -679,6 +2097,402 @@
                 "responses": {
                     "204": {
                         "description": "Organization level deleted"
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-units": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationUnit"
+                ],
+                "summary": "List all OrganizationUnit",
+                "operationId": "57ab9e42bfc7af6c34f57b685e57e256",
+                "responses": {
+                    "200": {
+                        "description": "List of OrganizationUnit",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/OrganizationUnit"
+                ],
+                "summary": "Create a new OrganizationUnit",
+                "operationId": "5686e14aba21b8249a958dd9aa97f78a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OrganizationUnit created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-units/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationUnit"
+                ],
+                "summary": "Get OrganizationUnit detail by ID",
+                "operationId": "3ce88f6d929a2c0b13deb4303a7ae464",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnit ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnit detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnit not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/OrganizationUnit"
+                ],
+                "summary": "Update an existing OrganizationUnit",
+                "operationId": "f410616fc714a0e926024c339fbd9327",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnit ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnit updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnit not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/OrganizationUnit"
+                ],
+                "summary": "Delete a OrganizationUnit by ID",
+                "operationId": "26716d1e8d8ad5d3145ecdefcdcc4b77",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnit ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnit deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnit not found"
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-unit-histories": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationUnitHistory"
+                ],
+                "summary": "List all OrganizationUnitHistory",
+                "operationId": "722c3b1a3078915cc09de1c13baae0fb",
+                "responses": {
+                    "200": {
+                        "description": "List of OrganizationUnitHistory",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitHistoryListResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Reference/OrganizationUnitHistory"
+                ],
+                "summary": "Create a new OrganizationUnitHistory",
+                "operationId": "dae511df217882798291e36b8f7c4b75",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "organization_unit_id",
+                                    "organization_level_id",
+                                    "start_date",
+                                    "end_date",
+                                    "is_active"
+                                ],
+                                "properties": {
+                                    "organization_unit_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "organization_level_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    },
+                                    "is_active": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "note": {
+                                        "type": "object",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OrganizationUnitHistory created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitHistoryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation failed"
+                    }
+                }
+            }
+        },
+        "/api/reference/organization-unit-histories/{id}": {
+            "get": {
+                "tags": [
+                    "Reference/OrganizationUnitHistory"
+                ],
+                "summary": "Get OrganizationUnitHistory detail by ID",
+                "operationId": "3450c512a213b3ee33ecae5541eb9600",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnitHistory ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnitHistory detail",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitHistoryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnitHistory not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Reference/OrganizationUnitHistory"
+                ],
+                "summary": "Update an existing OrganizationUnitHistory",
+                "operationId": "fb05000c30f0754d7de2dd06136149dd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnitHistory ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "organization_unit_id",
+                                    "organization_level_id",
+                                    "start_date",
+                                    "end_date",
+                                    "is_active"
+                                ],
+                                "properties": {
+                                    "organization_unit_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "organization_level_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "example": "example value"
+                                    },
+                                    "is_active": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "note": {
+                                        "type": "object",
+                                        "example": "example value"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnitHistory updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrganizationUnitHistoryResponse"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnitHistory not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Reference/OrganizationUnitHistory"
+                ],
+                "summary": "Delete a OrganizationUnitHistory by ID",
+                "operationId": "4dd64689017acbfa8307d3b2e683a8cc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "OrganizationUnitHistory ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OrganizationUnitHistory deleted successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "status": "success",
+                                    "message": "Data deleted",
+                                    "data": true
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "OrganizationUnitHistory not found"
                     }
                 }
             }
@@ -1974,6 +3788,58 @@
     },
     "components": {
         "schemas": {
+            "AcademicYear": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "year": {
+                        "type": "string",
+                        "example": "2023/2024"
+                    },
+                    "note": {
+                        "type": "json",
+                        "example": "{}"
+                    }
+                },
+                "type": "object"
+            },
+            "AcademicYearResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Academic year detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/AcademicYear"
+                    }
+                },
+                "type": "object"
+            },
+            "AcademicYearListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of academic years"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AcademicYear"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "Accreditation": {
                 "properties": {
                     "id": {
@@ -1984,18 +3850,27 @@
                         "properties": {
                             "en": {
                                 "type": "string",
-                                "example": "Pending"
+                                "example": "Good"
                             },
                             "id": {
                                 "type": "string",
-                                "example": "Menunggu"
+                                "example": "Bagus"
                             }
                         },
                         "type": "object"
                     },
                     "description": {
-                        "type": "string",
-                        "example": "Accreditation description"
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Description good"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Deskripsi bagus"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "type": "object"
@@ -2030,6 +3905,63 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Accreditation"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "AdmissionPathway": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Pending"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Menunggu"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "AdmissionPathwayResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Admission Pathway detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/AdmissionPathway"
+                    }
+                },
+                "type": "object"
+            },
+            "AdmissionPathwayListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of admission pathways"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AdmissionPathway"
                         }
                     }
                 },
@@ -2148,6 +4080,280 @@
                 },
                 "type": "object"
             },
+            "DigitSemester": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "digit": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "note": {
+                        "type": "json",
+                        "example": "{}"
+                    }
+                },
+                "type": "object"
+            },
+            "DigitSemesterResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Digit semester detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/DigitSemester"
+                    }
+                },
+                "type": "object"
+            },
+            "DigitSemesterListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of digit semesters"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DigitSemester"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "EducationLevel": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Bachelor"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Sarjana"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "code": {
+                        "type": "string",
+                        "example": "S1"
+                    }
+                },
+                "type": "object"
+            },
+            "EducationLevelResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Education Level detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/EducationLevel"
+                    }
+                },
+                "type": "object"
+            },
+            "EducationLevelListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of education levels"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/EducationLevel"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "GradeList": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "code": {
+                        "type": "string",
+                        "example": "B"
+                    },
+                    "gpa_score": {
+                        "type": "string",
+                        "example": "3.00"
+                    }
+                },
+                "type": "object"
+            },
+            "GradeListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Grade detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/GradeList"
+                    }
+                },
+                "type": "object"
+            },
+            "GradeListListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of grade lists"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GradeList"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "Graduation": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "year": {
+                        "type": "string",
+                        "example": "2025-2026"
+                    },
+                    "note": {
+                        "type": "json",
+                        "example": "{}"
+                    }
+                },
+                "type": "object"
+            },
+            "GraduationResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Graduation detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/Graduation"
+                    }
+                },
+                "type": "object"
+            },
+            "GraduationListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of graduations"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Graduation"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "GraduationPredicate": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Pending"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Menunggu"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "GraduationPredicateResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Graduation Predicate detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/GraduationPredicate"
+                    }
+                },
+                "type": "object"
+            },
+            "GraduationPredicateListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of graduation predicates"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/GraduationPredicate"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "MinimumPrerequisiteCourse": {
                 "properties": {
                     "id": {
@@ -2261,6 +4467,162 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/OrganizationLevel"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnit": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Faculty Information"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Fakultas Informasi"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "unit_type_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "parent_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "unit_type": {
+                        "$ref": "#/components/schemas/UnitType"
+                    },
+                    "parent": {
+                        "$ref": "#/components/schemas/OrganizationUnit"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnitResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Organization unit detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/OrganizationUnit"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnitListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of organization units"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganizationUnit"
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnitHistory": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "organization_unit_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "organization_level_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "start_date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-10-14"
+                    },
+                    "end_date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-10-14"
+                    },
+                    "is_active": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "note": {
+                        "properties": {
+                            "en": {
+                                "type": "string",
+                                "example": "Faculty Information"
+                            },
+                            "id": {
+                                "type": "string",
+                                "example": "Fakultas Informasi"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "organization_level": {
+                        "$ref": "#/components/schemas/OrganizationLevel"
+                    },
+                    "organization_unit": {
+                        "$ref": "#/components/schemas/OrganizationUnit"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnitHistoryResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Organization unit history detail"
+                    },
+                    "data": {
+                        "$ref": "#/components/schemas/OrganizationUnitHistory"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationUnitHistoryListResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "success"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "List of organization unit histories"
+                    },
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrganizationUnitHistory"
                         }
                     }
                 },
@@ -2565,11 +4927,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "example": "Program Sarjana"
+                        "example": "Faculty"
                     },
                     "note": {
                         "type": "string",
-                        "example": "Catatan tambahan"
+                        "example": "Fakultas"
                     }
                 },
                 "type": "object"
@@ -2673,6 +5035,18 @@
     },
     "tags": [
         {
+            "name": "Reference/AcademicYear",
+            "description": "Reference/AcademicYear"
+        },
+        {
+            "name": "Reference/Accreditation",
+            "description": "Reference/Accreditation"
+        },
+        {
+            "name": "Reference/AdmissionPathway",
+            "description": "Reference/AdmissionPathway"
+        },
+        {
             "name": "Reference/CohortYear",
             "description": "Reference/CohortYear"
         },
@@ -2681,12 +5055,40 @@
             "description": "Reference/CourseType"
         },
         {
+            "name": "Reference/DigitSemester",
+            "description": "Reference/DigitSemester"
+        },
+        {
+            "name": "Reference/EducationLevel",
+            "description": "Reference/EducationLevel"
+        },
+        {
+            "name": "Reference/GradeList",
+            "description": "Reference/GradeList"
+        },
+        {
+            "name": "Reference/Graduation",
+            "description": "Reference/Graduation"
+        },
+        {
+            "name": "Reference/GraduationPredicate",
+            "description": "Reference/GraduationPredicate"
+        },
+        {
             "name": "Reference/MinimumPrerequisiteCourse",
             "description": "Reference/MinimumPrerequisiteCourse"
         },
         {
             "name": "Reference/OrganizationLevel",
             "description": "Reference/OrganizationLevel"
+        },
+        {
+            "name": "Reference/OrganizationUnit",
+            "description": "Reference/OrganizationUnit"
+        },
+        {
+            "name": "Reference/OrganizationUnitHistory",
+            "description": "Reference/OrganizationUnitHistory"
         },
         {
             "name": "Reference/Role",

@@ -11,10 +11,15 @@ use Illuminate\Database\Eloquent\Model;
  *   @OA\Property(
  *     property="name",
  *     type="object",
- *     @OA\Property(property="en", type="string", example="Pending"),
- *     @OA\Property(property="id", type="string", example="Menunggu")
+ *     @OA\Property(property="en", type="string", example="Good"),
+ *     @OA\Property(property="id", type="string", example="Bagus")
  *   ),
- *   @OA\Property(property="description", type="string", example="Accreditation description")
+ *   @OA\Property(
+ *     property="description",
+ *     type="object",
+ *     @OA\Property(property="en", type="string", example="Description good"),
+ *     @OA\Property(property="id", type="string", example="Deskripsi bagus")
+ *   ),
  * )
  *
  * @OA\Schema(
@@ -42,5 +47,6 @@ class Accreditation extends Model
 
     protected $casts = [
         'name' => 'array',
+        'description' => 'array',
     ];
 }

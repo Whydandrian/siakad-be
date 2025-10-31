@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * @OA\Schema(
  *   schema="UnitType",
  *   @OA\Property(property="id", type="integer", example=1),
- *   @OA\Property(property="name", type="string", example="Program Sarjana"),
- *   @OA\Property(property="note", type="string", example="Catatan tambahan")
+ *   @OA\Property(property="name", type="string", example="Faculty"),
+ *   @OA\Property(property="note", type="string", example="Fakultas")
  * )
  *
  * @OA\Schema(
